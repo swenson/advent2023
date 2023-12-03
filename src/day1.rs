@@ -4,7 +4,12 @@ pub fn day1() {
     let inp = fs::read_to_string("day1.input.txt").unwrap();
     let mut s: u64 = 0;
     for line in inp.split_whitespace() {
-        let digits: Vec<u8> = line.as_bytes().iter().filter(|y| y.is_ascii_digit()).map(|y| *y).collect();
+        let digits: Vec<u8> = line
+            .as_bytes()
+            .iter()
+            .filter(|y| y.is_ascii_digit())
+            .map(|y| *y)
+            .collect();
         let num = (digits.first().unwrap() - 48) * 10 + digits.last().unwrap() - 48;
         s += num as u64;
     }
@@ -26,7 +31,12 @@ fn day1_2() {
         let line = line.replace("seven", "seven7seven");
         let line = line.replace("eight", "eight8eight");
         let line = line.replace("nine", "nine9nine");
-        let digits: Vec<u8> = line.as_bytes().iter().filter(|y| y.is_ascii_digit()).map(|y| *y).collect();
+        let digits: Vec<u8> = line
+            .as_bytes()
+            .iter()
+            .filter(|y| y.is_ascii_digit())
+            .map(|y| *y)
+            .collect();
         let num = (digits.first().unwrap() - 48) * 10 + digits.last().unwrap() - 48;
         s += num as u64;
     }

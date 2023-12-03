@@ -1,18 +1,18 @@
-use std::fs;
 use std::collections::{HashMap, HashSet};
+use std::fs;
 
 pub fn day3() {
     let inp = fs::read_to_string("day3.input.txt").unwrap();
-//     let inp = "467..114..
-// ...*......
-// ..35..633.
-// ......#...
-// 617*......
-// .....+.58.
-// ..592.....
-// ......755.
-// ...$.*....
-// .664.598..";
+    //     let inp = "467..114..
+    // ...*......
+    // ..35..633.
+    // ......#...
+    // 617*......
+    // .....+.58.
+    // ..592.....
+    // ......755.
+    // ...$.*....
+    // .664.598..";
     let mut symbols = vec![];
     let mut r = 0;
     for line in inp.lines() {
@@ -43,8 +43,8 @@ pub fn day3() {
             }
             if in_number {
                 if x.is_ascii_digit() {
-                    for rr in r-1 .. r + 2 {
-                        for cc in c-1 .. c + 2 {
+                    for rr in r - 1..r + 2 {
+                        for cc in c - 1..c + 2 {
                             adjacent = adjacent || symbols.contains(&(rr, cc));
                         }
                     }
@@ -70,16 +70,16 @@ pub fn day3() {
 
 fn day3_2() {
     let inp = fs::read_to_string("day3.input.txt").unwrap();
-//     let inp = "467..114..
-// ...*......
-// ..35..633.
-// ......#...
-// 617*......
-// .....+.58.
-// ..592.....
-// ......755.
-// ...$.*....
-// .664.598..";
+    //     let inp = "467..114..
+    // ...*......
+    // ..35..633.
+    // ......#...
+    // 617*......
+    // .....+.58.
+    // ..592.....
+    // ......755.
+    // ...$.*....
+    // .664.598..";
     let mut gears = vec![];
     let mut r = 0;
     for line in inp.lines() {
@@ -110,8 +110,8 @@ fn day3_2() {
             }
             if in_number {
                 if x.is_ascii_digit() {
-                    for rr in r-1 .. r + 2 {
-                        for cc in c-1 .. c + 2 {
+                    for rr in r - 1..r + 2 {
+                        for cc in c - 1..c + 2 {
                             if gears.contains(&(rr, cc)) {
                                 adjacent.insert((rr, cc));
                             }

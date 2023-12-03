@@ -2,8 +2,8 @@ mod day1;
 mod day2;
 mod day3;
 
-use std::fmt;
 use clap::{Parser, Subcommand};
+use std::fmt;
 
 #[derive(Parser)]
 #[command(author, version, about, long_about = None)]
@@ -29,7 +29,6 @@ impl fmt::Display for Command {
         write!(f, "{}", x)
     }
 }
-
 
 fn main() {
     let args = Cli::parse();
