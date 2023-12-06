@@ -224,11 +224,11 @@ humidity-to-location map:
     }
 
     let mut min = u64::MAX;
-    for i in 0..seeds.len()/2 {
+    for i in 0..seeds.len() / 2 {
         let a = seeds[2 * i];
         let b = a + seeds[2 * i + 1] - 1;
-        println!("Checking {} numbers", seeds[2*i+1]);
-        for a in seeds[2*i]..seeds[2*i]+seeds[2*i+1] {
+        println!("Checking {} numbers", seeds[2 * i + 1]);
+        for a in seeds[2 * i]..seeds[2 * i] + seeds[2 * i + 1] {
             let mut current = a;
             for map in maps.iter() {
                 for (dest, src, length) in map.iter() {
@@ -246,4 +246,3 @@ humidity-to-location map:
     }
     println!("min = {}", min);
 }
-
