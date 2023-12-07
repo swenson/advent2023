@@ -1,6 +1,3 @@
-use std::collections::HashMap;
-use std::ops::RangeInclusive;
-
 pub fn day5() {
     let _inp = "seeds: 79 14 55 13
 
@@ -80,7 +77,7 @@ humidity-to-location map:
 }
 
 pub fn day5_2() {
-    let inp = "seeds: 79 14 55 13
+    let _inp = "seeds: 79 14 55 13
 
 seed-to-soil map:
 50 98 2
@@ -226,7 +223,7 @@ humidity-to-location map:
     let mut min = u64::MAX;
     for i in 0..seeds.len() / 2 {
         let a = seeds[2 * i];
-        let b = a + seeds[2 * i + 1] - 1;
+        let _b = a + seeds[2 * i + 1] - 1;
         println!("Checking {} numbers", seeds[2 * i + 1]);
         for a in seeds[2 * i]..seeds[2 * i] + seeds[2 * i + 1] {
             let mut current = a;

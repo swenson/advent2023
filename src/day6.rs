@@ -1,5 +1,5 @@
 pub fn day6() {
-    let inp = "Time:      7  15   30
+    let _inp = "Time:      7  15   30
 Distance:  9  40  200";
     let inp = std::fs::read_to_string("day6.input.txt").unwrap();
 
@@ -36,7 +36,7 @@ Distance:  9  40  200";
 }
 
 pub fn day6_2() {
-    let inp = "Time:      7  15   30
+    let _inp = "Time:      7  15   30
 Distance:  9  40  200";
     let inp = std::fs::read_to_string("day6.input.txt").unwrap();
 
