@@ -10,15 +10,13 @@ Card 6: 31 18 13 56 72 | 74 77 10 23 35 67 36 11";
     let inp = std::fs::read_to_string("day4.input.txt").unwrap();
     let mut total = 0u64;
     for line in inp.lines() {
-        let split = line.split(":");
-        let nums: Vec<_> = split.last().unwrap().trim().split("|").collect();
+        let split = line.split(':');
+        let nums: Vec<_> = split.last().unwrap().trim().split('|').collect();
         let winning: HashSet<_> = nums[0]
-            .trim()
             .split_whitespace()
             .map(|x| x.parse::<u64>().unwrap())
             .collect();
         let score = nums[1]
-            .trim()
             .split_whitespace()
             .map(|x| x.parse::<u64>().unwrap())
             .filter(|x| winning.contains(x))
@@ -44,15 +42,13 @@ Card 6: 31 18 13 56 72 | 74 77 10 23 35 67 36 11";
     copies[0] = 0;
     for line in inp.lines() {
         card += 1;
-        let split = line.split(":");
-        let nums: Vec<_> = split.last().unwrap().trim().split("|").collect();
+        let split = line.split(':');
+        let nums: Vec<_> = split.last().unwrap().trim().split('|').collect();
         let winning: HashSet<_> = nums[0]
-            .trim()
             .split_whitespace()
             .map(|x| x.parse::<u64>().unwrap())
             .collect();
         let matches = nums[1]
-            .trim()
             .split_whitespace()
             .map(|x| x.parse::<u64>().unwrap())
             .filter(|x| winning.contains(x))

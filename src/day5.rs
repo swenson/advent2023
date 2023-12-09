@@ -37,10 +37,9 @@ humidity-to-location map:
     let lines: Vec<_> = inp.lines().collect();
 
     let seeds: Vec<u64> = lines[0]
-        .split(":")
+        .split(':')
         .last()
         .unwrap()
-        .trim()
         .split_whitespace()
         .map(|x| x.parse().unwrap())
         .collect();
@@ -115,10 +114,9 @@ humidity-to-location map:
     let lines: Vec<_> = inp.lines().collect();
 
     let seeds: Vec<u64> = lines[0]
-        .split(":")
+        .split(':')
         .last()
         .unwrap()
-        .trim()
         .split_whitespace()
         .map(|x| x.parse().unwrap())
         .collect();

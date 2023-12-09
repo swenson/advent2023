@@ -42,17 +42,17 @@ Distance:  9  40  200";
 
     let lines: Vec<_> = inp.lines().collect();
     let max_time: u64 = lines[0]
-        .split(":")
+        .split(':')
         .last()
         .unwrap()
-        .replace(" ", "")
+        .replace(' ', "")
         .parse()
         .unwrap();
     let distance: u64 = lines[1]
-        .split(":")
+        .split(':')
         .last()
         .unwrap()
-        .replace(" ", "")
+        .replace(' ', "")
         .parse()
         .unwrap();
     let mut count: u64 = 0;

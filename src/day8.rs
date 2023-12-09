@@ -24,12 +24,11 @@ ZZZ = (ZZZ, ZZZ)";
 
     let mut map = HashMap::new();
 
-    for li in 2..lines.len() {
-        let line = lines[li];
-        let parts: Vec<_> = line.split("=").map(|x| x.trim()).collect();
+    for line in lines.iter().skip(2) {
+        let parts: Vec<_> = line.split('=').map(|x| x.trim()).collect();
         let from = parts[0];
         let rhs = parts[1];
-        let rhs: Vec<_> = rhs[1..rhs.len() - 1].split(",").map(|x| x.trim()).collect();
+        let rhs: Vec<_> = rhs[1..rhs.len() - 1].split(',').map(|x| x.trim()).collect();
         let left = rhs[0];
         let right = rhs[1];
         map.insert(from, (left, right));
@@ -70,12 +69,11 @@ XXX = (XXX, XXX)";
 
     let mut keys = HashSet::new();
 
-    for li in 2..lines.len() {
-        let line = lines[li];
-        let parts: Vec<_> = line.split("=").map(|x| x.trim()).collect();
+    for line in lines.iter().skip(2) {
+        let parts: Vec<_> = line.split('=').map(|x| x.trim()).collect();
         let from = parts[0];
         let rhs = parts[1];
-        let rhs: Vec<_> = rhs[1..rhs.len() - 1].split(",").map(|x| x.trim()).collect();
+        let rhs: Vec<_> = rhs[1..rhs.len() - 1].split(',').map(|x| x.trim()).collect();
         let left = rhs[0];
         let right = rhs[1];
         keys.insert(from);
@@ -92,26 +90,25 @@ XXX = (XXX, XXX)";
     let mut map = vec![0usize; keys.len() * dir_mult * 2];
     let mut current = vec![];
 
-    for li in 2..lines.len() {
-        let line = lines[li];
-        let parts: Vec<_> = line.split("=").map(|x| x.trim()).collect();
+    for line in lines.iter().skip(2) {
+        let parts: Vec<_> = line.split('=').map(|x| x.trim()).collect();
         let from = parts[0];
         let rhs = parts[1];
-        let rhs: Vec<_> = rhs[1..rhs.len() - 1].split(",").map(|x| x.trim()).collect();
+        let rhs: Vec<_> = rhs[1..rhs.len() - 1].split(',').map(|x| x.trim()).collect();
         let left = rhs[0];
         let right = rhs[1];
-        let start = from.ends_with("A");
-        let from_end = from.ends_with("Z");
-        let left_end = left.ends_with("Z");
-        let right_end = right.ends_with("Z");
+        let start = from.ends_with('A');
+        let from_end = from.ends_with('Z');
+        let left_end = left.ends_with('Z');
+        let right_end = right.ends_with('Z');
         let from = *key_map.get(from).unwrap();
         let left = *key_map.get(left).unwrap();
         let right = *key_map.get(right).unwrap();
-        for d in 0..dir_mult {
+        for (d, dir) in dirs.iter().enumerate() {
             let f = from * dir_mult * 2 + d * 2 + if from_end { 1 } else { 0 };
             let l = left * dir_mult * 2 + (d + 1) % dir_mult * 2 + if left_end { 1 } else { 0 };
             let r = right * dir_mult * 2 + (d + 1) % dir_mult * 2 + if right_end { 1 } else { 0 };
-            if dirs[d] == 'L' {
+            if *dir == 'L' {
                 map[f] = l;
             } else {
                 map[f] = r;
@@ -139,7 +136,7 @@ XXX = (XXX, XXX)";
     println!("solution = {:?}", l);
 }
 
-fn find_cycle(map: &Vec<usize>, start: usize) -> (Vec<usize>, usize, usize) {
+fn find_cycle(map: &[usize], start: usize) -> (Vec<usize>, usize, usize) {
     let mut seen = HashMap::new();
     let mut x = start;
     let mut finals = vec![];

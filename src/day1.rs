@@ -8,7 +8,7 @@ pub fn day1() {
             .as_bytes()
             .iter()
             .filter(|y| y.is_ascii_digit())
-            .map(|y| *y)
+            .copied()
             .collect();
         let num = (digits.first().unwrap() - 48) * 10 + digits.last().unwrap() - 48;
         s += num as u64;
@@ -35,7 +35,7 @@ fn day1_2() {
             .as_bytes()
             .iter()
             .filter(|y| y.is_ascii_digit())
-            .map(|y| *y)
+            .copied()
             .collect();
         let num = (digits.first().unwrap() - 48) * 10 + digits.last().unwrap() - 48;
         s += num as u64;

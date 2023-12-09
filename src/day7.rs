@@ -17,8 +17,8 @@ QQQJA 483";
     }
     hands.sort();
     let mut winnings = 0;
-    for rank in 0..hands.len() {
-        winnings += (rank + 1) as u64 * hands[rank].bid;
+    for (rank, hand) in hands.iter().enumerate() {
+        winnings += (rank + 1) as u64 * hand.bid;
     }
     println!("Winnings = {}", winnings);
 
@@ -35,50 +35,50 @@ impl PartialEq<Self> for Hand {
 
 impl PartialOrd<Self> for Hand {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
-        let max_count_self = self.counts.iter().max().unwrap();
-        let max_count_other = other.counts.iter().max().unwrap();
-
-        if max_count_self > max_count_other {
-            return Some(Ordering::Greater);
-        }
-        if max_count_self < max_count_other {
-            return Some(Ordering::Less);
-        }
-
-        let full_house_self = self.counts.contains(&3) && self.counts.contains(&2);
-        let full_house_other = other.counts.contains(&3) && other.counts.contains(&2);
-        if full_house_self && !full_house_other {
-            return Some(Ordering::Greater);
-        }
-        if !full_house_self && full_house_other {
-            return Some(Ordering::Less);
-        }
-
-        let two_pair_self = self.counts.iter().filter(|x| **x == 2).count() == 2;
-        let two_pair_other = other.counts.iter().filter(|x| **x == 2).count() == 2;
-        if two_pair_self && !two_pair_other {
-            return Some(Ordering::Greater);
-        }
-        if !two_pair_self && two_pair_other {
-            return Some(Ordering::Less);
-        }
-
-        for i in 0..5 {
-            let a = rank_card(self.hand[i]);
-            let b = rank_card(other.hand[i]);
-            if a > b {
-                return Some(Ordering::Greater);
-            } else if a < b {
-                return Some(Ordering::Less);
-            }
-        }
-        Some(Ordering::Equal)
+        Some(self.cmp(other))
     }
 }
 
 impl Ord for Hand {
     fn cmp(&self, other: &Self) -> Ordering {
-        self.partial_cmp(other).unwrap()
+
+        let max_count_self = self.counts.iter().max().unwrap();
+        let max_count_other = other.counts.iter().max().unwrap();
+
+        if max_count_self > max_count_other {
+            return Ordering::Greater;
+        }
+        if max_count_self < max_count_other {
+            return Ordering::Less;
+        }
+
+        let full_house_self = self.counts.contains(&3) && self.counts.contains(&2);
+        let full_house_other = other.counts.contains(&3) && other.counts.contains(&2);
+        if full_house_self && !full_house_other {
+            return Ordering::Greater;
+        }
+        if !full_house_self && full_house_other {
+            return Ordering::Less;
+        }
+
+        let two_pair_self = self.counts.iter().filter(|x| **x == 2).count() == 2;
+        let two_pair_other = other.counts.iter().filter(|x| **x == 2).count() == 2;
+        if two_pair_self && !two_pair_other {
+            return Ordering::Greater;
+        }
+        if !two_pair_self && two_pair_other {
+            return Ordering::Less;
+        }
+
+        for i in 0..5 {
+            let a = rank_card(self.hand[i]);
+            let b = rank_card(other.hand[i]);
+            let cmp = a.cmp(&b);
+            if cmp != Ordering::Equal {
+                return cmp;
+            }
+        }
+        Ordering::Equal
     }
 
     fn max(self, _other: Self) -> Self
@@ -167,8 +167,8 @@ QQQJA 483";
     }
     hands.sort();
     let mut winnings = 0;
-    for rank in 0..hands.len() {
-        winnings += (rank + 1) as u64 * hands[rank].bid;
+    for (rank, hand) in hands.iter().enumerate() {
+        winnings += (rank + 1) as u64 * hand.bid;
     }
     println!("Winnings = {}", winnings);
 }
@@ -183,50 +183,49 @@ impl PartialEq<Self> for Hand2 {
 
 impl PartialOrd<Self> for Hand2 {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
-        let max_count_self = self.counts.iter().max().unwrap();
-        let max_count_other = other.counts.iter().max().unwrap();
-
-        if max_count_self > max_count_other {
-            return Some(Ordering::Greater);
-        }
-        if max_count_self < max_count_other {
-            return Some(Ordering::Less);
-        }
-
-        let full_house_self = self.counts.contains(&3) && self.counts.contains(&2);
-        let full_house_other = other.counts.contains(&3) && other.counts.contains(&2);
-        if full_house_self && !full_house_other {
-            return Some(Ordering::Greater);
-        }
-        if !full_house_self && full_house_other {
-            return Some(Ordering::Less);
-        }
-
-        let two_pair_self = self.counts.iter().filter(|x| **x == 2).count() == 2;
-        let two_pair_other = other.counts.iter().filter(|x| **x == 2).count() == 2;
-        if two_pair_self && !two_pair_other {
-            return Some(Ordering::Greater);
-        }
-        if !two_pair_self && two_pair_other {
-            return Some(Ordering::Less);
-        }
-
-        for i in 0..5 {
-            let a = rank_card2(self.hand[i]);
-            let b = rank_card2(other.hand[i]);
-            if a > b {
-                return Some(Ordering::Greater);
-            } else if a < b {
-                return Some(Ordering::Less);
-            }
-        }
-        Some(Ordering::Equal)
+        Some(self.cmp(other))
     }
 }
 
 impl Ord for Hand2 {
     fn cmp(&self, other: &Self) -> Ordering {
-        self.partial_cmp(other).unwrap()
+        let max_count_self = self.counts.iter().max().unwrap();
+        let max_count_other = other.counts.iter().max().unwrap();
+
+        if max_count_self > max_count_other {
+            return Ordering::Greater;
+        }
+        if max_count_self < max_count_other {
+            return Ordering::Less;
+        }
+
+        let full_house_self = self.counts.contains(&3) && self.counts.contains(&2);
+        let full_house_other = other.counts.contains(&3) && other.counts.contains(&2);
+        if full_house_self && !full_house_other {
+            return Ordering::Greater;
+        }
+        if !full_house_self && full_house_other {
+            return Ordering::Less;
+        }
+
+        let two_pair_self = self.counts.iter().filter(|x| **x == 2).count() == 2;
+        let two_pair_other = other.counts.iter().filter(|x| **x == 2).count() == 2;
+        if two_pair_self && !two_pair_other {
+            return Ordering::Greater;
+        }
+        if !two_pair_self && two_pair_other {
+            return Ordering::Less;
+        }
+
+        for i in 0..5 {
+            let a = rank_card2(self.hand[i]);
+            let b = rank_card2(other.hand[i]);
+            let cmp = a.cmp(&b);
+            if cmp != Ordering::Equal {
+                return cmp;
+            }
+        }
+        Ordering::Equal
     }
 
     fn max(self, _other: Self) -> Self
