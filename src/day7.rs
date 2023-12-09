@@ -41,7 +41,6 @@ impl PartialOrd<Self> for Hand {
 
 impl Ord for Hand {
     fn cmp(&self, other: &Self) -> Ordering {
-
         let max_count_self = self.counts.iter().max().unwrap();
         let max_count_other = other.counts.iter().max().unwrap();
 
