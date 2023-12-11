@@ -2,6 +2,7 @@ extern crate core;
 
 mod day1;
 mod day10;
+mod day11;
 mod day2;
 mod day3;
 mod day4;
@@ -33,6 +34,7 @@ enum Command {
     D8,
     D9,
     D10,
+    D11,
 }
 
 impl fmt::Display for Command {
@@ -48,6 +50,7 @@ impl fmt::Display for Command {
             Command::D8 => "d8",
             Command::D9 => "d9",
             Command::D10 => "d10",
+            Command::D11 => "d11",
         };
         write!(f, "{}", x)
     }
@@ -56,7 +59,7 @@ impl fmt::Display for Command {
 fn main() {
     let args = Cli::parse();
 
-    let cmd = args.command.unwrap_or(Command::D10);
+    let cmd = args.command.unwrap_or(Command::D11);
     let main_fun = match cmd {
         Command::D1 => day1::day1,
         Command::D2 => day2::day2,
@@ -68,6 +71,7 @@ fn main() {
         Command::D8 => day8::day8,
         Command::D9 => day9::day9,
         Command::D10 => day10::day10,
+        Command::D11 => day11::day11,
     };
     main_fun();
 }
