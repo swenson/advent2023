@@ -13,6 +13,7 @@ mod day6;
 mod day7;
 mod day8;
 mod day9;
+mod day14;
 
 use clap::{Parser, Subcommand};
 use std::fmt;
@@ -39,6 +40,7 @@ enum Command {
     D11,
     D12,
     D13,
+    D14,
 }
 
 impl fmt::Display for Command {
@@ -57,6 +59,7 @@ impl fmt::Display for Command {
             Command::D11 => "d11",
             Command::D12 => "d12",
             Command::D13 => "d13",
+            Command::D14 => "d14",
         };
         write!(f, "{}", x)
     }
@@ -65,7 +68,7 @@ impl fmt::Display for Command {
 fn main() {
     let args = Cli::parse();
 
-    let cmd = args.command.unwrap_or(Command::D13);
+    let cmd = args.command.unwrap_or(Command::D14);
     let main_fun = match cmd {
         Command::D1 => day1::day1,
         Command::D2 => day2::day2,
@@ -80,6 +83,7 @@ fn main() {
         Command::D11 => day11::day11,
         Command::D12 => day12::day12,
         Command::D13 => day13::day13,
+        Command::D14 => day14::day14,
     };
     main_fun();
 }
