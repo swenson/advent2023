@@ -39,8 +39,7 @@ pub fn day15_2() {
             let v: Vec<_> = x.split('=').collect();
             let a = v[0];
             let h = hash(a.as_bytes());
-            map.entry(h).or_default();
-            let mm = map.get_mut(&h).unwrap();
+            let mm = map.entry(h).or_default();
             let b = v[1].parse::<usize>().unwrap();
             let mut found = false;
             for i in 0..mm.len() {
@@ -57,8 +56,7 @@ pub fn day15_2() {
         } else {
             let y = &x[..x.len() - 1];
             let h = hash(y.as_bytes());
-            map.entry(h).or_default();
-            let mm = map.get_mut(&h).unwrap();
+            let mm = map.entry(h).or_default();
             for i in 0..mm.len() {
                 if mm[i].0 == y {
                     mm.remove(i);
