@@ -7,6 +7,7 @@ mod day12;
 mod day13;
 mod day14;
 mod day15;
+mod day16;
 mod day2;
 mod day3;
 mod day4;
@@ -43,6 +44,7 @@ enum Command {
     D13,
     D14,
     D15,
+    D16,
 }
 
 impl fmt::Display for Command {
@@ -63,6 +65,7 @@ impl fmt::Display for Command {
             Command::D13 => "d13",
             Command::D14 => "d14",
             Command::D15 => "d15",
+            Command::D16 => "d16",
         };
         write!(f, "{}", x)
     }
@@ -71,7 +74,7 @@ impl fmt::Display for Command {
 fn main() {
     let args = Cli::parse();
 
-    let cmd = args.command.unwrap_or(Command::D15);
+    let cmd = args.command.unwrap_or(Command::D16);
     let main_fun = match cmd {
         Command::D1 => day1::day1,
         Command::D2 => day2::day2,
@@ -88,6 +91,7 @@ fn main() {
         Command::D13 => day13::day13,
         Command::D14 => day14::day14,
         Command::D15 => day15::day15,
+        Command::D16 => day16::day16,
     };
     main_fun();
 }
