@@ -31,8 +31,6 @@ Distance:  9  40  200";
     }
 
     println!("product = {}", counts.iter().product::<u64>());
-
-    day6_2();
 }
 
 pub fn day6_2() {

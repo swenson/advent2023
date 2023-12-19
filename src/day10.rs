@@ -97,8 +97,6 @@ LJ...";
         }
     }
     println!("max = {}", dist.values().max().unwrap());
-
-    day10_2();
 }
 
 pub fn day10_2() {

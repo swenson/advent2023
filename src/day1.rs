@@ -14,11 +14,9 @@ pub fn day1() {
         s += num as u64;
     }
     println!("sum = {}", s);
-
-    day1_2();
 }
 
-fn day1_2() {
+pub fn day1_2() {
     let inp = fs::read_to_string("day1.input.txt").unwrap();
     let mut s: u64 = 0;
     for line in inp.split_whitespace() {

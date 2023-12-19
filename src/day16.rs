@@ -27,7 +27,6 @@ pub fn day16() {
     let score: HashSet<_> = score.iter().map(|&(x, y, _)| (x, y)).collect();
     let score = score.len();
     println!("score = {}", score);
-    day16_2();
 }
 
 fn trace(

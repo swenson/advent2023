@@ -55,8 +55,6 @@ pub fn day11() {
         }
     }
     println!("total = {}", total);
-
-    day11_2();
 }
 
 pub fn day11_2() {

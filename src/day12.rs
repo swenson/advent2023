@@ -19,8 +19,6 @@ pub fn day12() {
     }
 
     println!("sum = {}", sum);
-
-    day12_2();
 }
 
 fn num_ways_start(line: &str) -> u64 {

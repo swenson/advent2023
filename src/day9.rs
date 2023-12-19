@@ -14,8 +14,6 @@ pub fn day9() {
         sum += predict_next(&nums);
     }
     println!("sum = {}", sum);
-
-    day9_2();
 }
 
 fn predict_next(nums: &[i64]) -> i64 {

@@ -21,8 +21,6 @@ QQQJA 483";
         winnings += (rank + 1) as u64 * hand.bid;
     }
     println!("Winnings = {}", winnings);
-
-    day7_2();
 }
 
 impl Eq for Hand {}

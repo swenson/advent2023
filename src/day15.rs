@@ -13,8 +13,6 @@ pub fn day15() {
     }
 
     println!("hash sum = {}", s);
-
-    day15_2();
 }
 
 fn hash(x: &[u8]) -> usize {

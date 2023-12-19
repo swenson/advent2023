@@ -22,8 +22,6 @@ O.#..O.#.#
     let lines = tilt_north(lines);
     let score = weight(lines);
     println!("score = {}", score);
-
-    day14_2();
 }
 
 fn weight(v: Vec<Vec<char>>) -> usize {

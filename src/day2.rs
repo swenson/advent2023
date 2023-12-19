@@ -34,10 +34,9 @@ pub fn day2() {
         }
     }
     println!("sum = {}", sum);
-    day2_2();
 }
 
-fn day2_2() {
+pub fn day2_2() {
     let inp = fs::read_to_string("day2.input.txt").unwrap();
     let mut power = 0u64;
     for line in inp.lines() {

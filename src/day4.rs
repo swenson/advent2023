@@ -26,7 +26,6 @@ Card 6: 31 18 13 56 72 | 74 77 10 23 35 67 36 11";
         }
     }
     println!("score = {}", total);
-    day4_2();
 }
 
 pub fn day4_2() {

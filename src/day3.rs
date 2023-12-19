@@ -60,10 +60,9 @@ pub fn day3() {
         }
     }
     println!("sum = {}", nums.iter().sum::<u64>());
-    day3_2();
 }
 
-fn day3_2() {
+pub fn day3_2() {
     let inp = fs::read_to_string("day3.input.txt").unwrap();
     //     let inp = "467..114..
     // ...*......

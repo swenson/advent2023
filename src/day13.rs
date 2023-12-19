@@ -23,8 +23,6 @@ pub fn day13() {
     }
 
     println!("score = {}", sum);
-
-    day13_2();
 }
 
 fn score(pattern: &str, ignore: usize) -> usize {

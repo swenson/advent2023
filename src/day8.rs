@@ -46,8 +46,6 @@ ZZZ = (ZZZ, ZZZ)";
         count += 1;
     }
     println!("count = {}", count);
-
-    day8_2();
 }
 
 pub fn day8_2() {

@@ -71,8 +71,6 @@ humidity-to-location map:
         }
     }
     println!("min = {}", next.iter().min().unwrap());
-
-    day5_2();
 }
 
 pub fn day5_2() {
