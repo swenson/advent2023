@@ -12,6 +12,7 @@ mod day17;
 mod day18;
 mod day19;
 mod day2;
+mod day20;
 mod day3;
 mod day4;
 mod day5;
@@ -52,6 +53,7 @@ enum Command {
     D17,
     D18,
     D19,
+    D20,
 }
 
 impl fmt::Display for Command {
@@ -76,6 +78,7 @@ impl fmt::Display for Command {
             Command::D17 => "d17",
             Command::D18 => "d18",
             Command::D19 => "d19",
+            Command::D20 => "d20",
         };
         write!(f, "{}", x)
     }
@@ -84,7 +87,7 @@ impl fmt::Display for Command {
 fn main() {
     let args = Cli::parse();
 
-    let cmd = args.command.unwrap_or(Command::D18);
+    let cmd = args.command.unwrap_or(Command::D20);
     let (pt1_fun, pt2_fun): (fn(), fn()) = match cmd {
         Command::D1 => (day1::day1, day1::day1_2),
         Command::D2 => (day2::day2, day2::day2_2),
@@ -105,6 +108,7 @@ fn main() {
         Command::D17 => (day17::day17, day17::day17_2),
         Command::D18 => (day18::day18, day18::day18_2),
         Command::D19 => (day19::day19, day19::day19_2),
+        Command::D20 => (day20::day20, day20::day20_2),
     };
     let p1_start = Instant::now();
     pt1_fun();
