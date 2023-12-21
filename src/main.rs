@@ -13,6 +13,7 @@ mod day18;
 mod day19;
 mod day2;
 mod day20;
+mod day21;
 mod day3;
 mod day4;
 mod day5;
@@ -22,7 +23,6 @@ mod day8;
 mod day9;
 
 use clap::{Parser, Subcommand};
-use std::fmt;
 use std::time::Instant;
 
 #[derive(Parser)]
@@ -54,40 +54,13 @@ enum Command {
     D18,
     D19,
     D20,
-}
-
-impl fmt::Display for Command {
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        let x = match self {
-            Command::D1 => "d1",
-            Command::D2 => "d2",
-            Command::D3 => "d3",
-            Command::D4 => "d4",
-            Command::D5 => "d5",
-            Command::D6 => "d6",
-            Command::D7 => "d7",
-            Command::D8 => "d8",
-            Command::D9 => "d9",
-            Command::D10 => "d10",
-            Command::D11 => "d11",
-            Command::D12 => "d12",
-            Command::D13 => "d13",
-            Command::D14 => "d14",
-            Command::D15 => "d15",
-            Command::D16 => "d16",
-            Command::D17 => "d17",
-            Command::D18 => "d18",
-            Command::D19 => "d19",
-            Command::D20 => "d20",
-        };
-        write!(f, "{}", x)
-    }
+    D21,
 }
 
 fn main() {
     let args = Cli::parse();
 
-    let cmd = args.command.unwrap_or(Command::D20);
+    let cmd = args.command.unwrap_or(Command::D21);
     let (pt1_fun, pt2_fun): (fn(), fn()) = match cmd {
         Command::D1 => (day1::day1, day1::day1_2),
         Command::D2 => (day2::day2, day2::day2_2),
@@ -109,6 +82,7 @@ fn main() {
         Command::D18 => (day18::day18, day18::day18_2),
         Command::D19 => (day19::day19, day19::day19_2),
         Command::D20 => (day20::day20, day20::day20_2),
+        Command::D21 => (day21::day21, day21::day21_2),
     };
     let p1_start = Instant::now();
     pt1_fun();
