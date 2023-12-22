@@ -7,5 +7,6 @@ edition = "2021"
 
 [dependencies]
 clap = { version = "4.4.10", features = ["derive", "cargo"] }
+crossbeam = "0.8.2"
 memoize = "0.4.1"
 num-integer = "0.1.45"
