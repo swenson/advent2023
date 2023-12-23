@@ -1,3 +1,4 @@
+#![feature(int_roundings)]
 extern crate core;
 
 mod day1;

@@ -54,21 +54,17 @@ fn collapse_all(bricks: &[Brick]) -> Vec<Brick> {
 
 fn collapse1(bricks: &[Brick]) -> Vec<Brick> {
     let mut new_bricks = vec![];
-    let mut g = 0;
-    let mut d = 0;
     for i in 0..bricks.len() {
         let b = &bricks[i];
         if b.on_ground() {
             new_bricks.push(b.clone());
-            g += 1;
             continue;
         }
         let mut supported = false;
-        for j in 0..bricks.len() {
+        for (j, c) in bricks.iter().enumerate() {
             if j == i {
                 continue;
             }
-            let c = &bricks[j];
             if b.on_top_of(c) {
                 supported = true;
                 break;
@@ -78,7 +74,6 @@ fn collapse1(bricks: &[Brick]) -> Vec<Brick> {
             new_bricks.push(b.clone());
         } else {
             new_bricks.push(b.drop1());
-            d += 1;
         }
     }
     new_bricks
@@ -251,21 +246,18 @@ fn count_collapse(bricks: &[Brick]) -> usize {
 
 fn collapse1_d(bricks: &[Brick]) -> (Vec<Brick>, HashSet<usize>) {
     let mut new_bricks = vec![];
-    let mut g = 0;
     let mut d = HashSet::new();
     for i in 0..bricks.len() {
         let b = &bricks[i];
         if b.on_ground() {
             new_bricks.push(b.clone());
-            g += 1;
             continue;
         }
         let mut supported = false;
-        for j in 0..bricks.len() {
+        for (j, c) in bricks.iter().enumerate() {
             if j == i {
                 continue;
             }
-            let c = &bricks[j];
             if b.on_top_of(c) {
                 supported = true;
                 break;
