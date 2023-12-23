@@ -16,6 +16,7 @@ mod day2;
 mod day20;
 mod day21;
 mod day22;
+mod day23;
 mod day3;
 mod day4;
 mod day5;
@@ -58,12 +59,13 @@ enum Command {
     D20,
     D21,
     D22,
+    D23,
 }
 
 fn main() {
     let args = Cli::parse();
 
-    let cmd = args.command.unwrap_or(Command::D22);
+    let cmd = args.command.unwrap_or(Command::D23);
     let (pt1_fun, pt2_fun): (fn(), fn()) = match cmd {
         Command::D1 => (day1::day1, day1::day1_2),
         Command::D2 => (day2::day2, day2::day2_2),
@@ -87,6 +89,7 @@ fn main() {
         Command::D20 => (day20::day20, day20::day20_2),
         Command::D21 => (day21::day21, day21::day21_2),
         Command::D22 => (day22::day22, day22::day22_2),
+        Command::D23 => (day23::day23, day23::day23_2),
     };
     let p1_start = Instant::now();
     pt1_fun();
