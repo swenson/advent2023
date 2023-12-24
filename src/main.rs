@@ -25,6 +25,7 @@ mod day6;
 mod day7;
 mod day8;
 mod day9;
+mod day25;
 
 use clap::{Parser, Subcommand};
 use std::time::Instant;
@@ -62,12 +63,13 @@ enum Command {
     D22,
     D23,
     D24,
+    D25,
 }
 
 fn main() {
     let args = Cli::parse();
 
-    let cmd = args.command.unwrap_or(Command::D24);
+    let cmd = args.command.unwrap_or(Command::D25);
     let (pt1_fun, pt2_fun): (fn(), fn()) = match cmd {
         Command::D1 => (day1::day1, day1::day1_2),
         Command::D2 => (day2::day2, day2::day2_2),
@@ -93,6 +95,7 @@ fn main() {
         Command::D22 => (day22::day22, day22::day22_2),
         Command::D23 => (day23::day23, day23::day23_2),
         Command::D24 => (day24::day24, day24::day24_2),
+        Command::D25 => (day25::day25, day25::day25_2),
     };
     let p1_start = Instant::now();
     pt1_fun();
