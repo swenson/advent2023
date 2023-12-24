@@ -22,7 +22,6 @@ pub fn day25_2() {
     println!("part 2 score = {}", score);
 }
 
-
 #[cfg(test)]
 mod test {
     use crate::day25::{part1, part2};

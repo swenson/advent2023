@@ -33,7 +33,7 @@ fn intersects_xy(
     let mut s = 0;
     for i in 0..particles.len() {
         let p = &particles[i];
-        for q in particles.iter().skip(i+1) {
+        for q in particles.iter().skip(i + 1) {
             if p.intersects_xy(q, &xrange, &yrange) {
                 s += 1;
             }
